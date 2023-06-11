@@ -16,17 +16,13 @@ EMPLOYEE TRACKER
 `;
 
 async function main() {
-  try {
     const connection = await createConnection(buildConnectionOptions());
-    console.log(connection);
+  
 
-    const [rows, fields] = await connection.execute('SELECT * FROM departments', []);
-    console.table(rows);
+    const [departments] = await connection.execute('SELECT * FROM departments', []);
+    console.table(departments);
 
-    connection.end();
-  } catch (error) {
-    console.error('Error:', error.message);
-  }
+
 }
 
 main();
