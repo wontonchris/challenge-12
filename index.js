@@ -13,9 +13,14 @@ async function main() {
     console.log(menuOption);
 
     const [departments] = await connection.execute('SELECT * FROM departments', []);
+    console.table(departments);
+    return menuOption();
     const [roles] = await connection.execute('SELECT * FROM roles', []);
+    console.table(roles);
+    return menuOption();
     const [employees] = await connection.execute('SELECT * FROM employees', []);
-    console.log(departments);
+    console.table(employees);
+    return menuOption();
 }
 main();
 
